@@ -1,44 +1,43 @@
 var listeUtilisateurs = [];
-var count = 0;
 
 // Constructeur pour les utilisateurs
-function Utilisateur(id, nom, dateNaissance, date) {
-	this.id = id;
+function Utilisateur(nom, dateNaissance, password, email, date) {
 	this.nom = nom;
 	this.dateNaissance = dateNaissance;
+	this.password = password;
+	this.email = email;
 	this.date = new Date();
 }
 
 function Utilisateur(utilisateur) {
-	this.id = utilisateur.id;
 	this.nom = utilisateur.nom;
 	this.dateNaissance = utilisateur.dateNaissance;
+	this.password = utilisateur.password;
+	this.email = utilisateur.email;
 	this.date = new Date();
 }
 
 // créer un nouveau utilisateur
 var creerUtilisateur = function (utilisateur) {
-	if (typeof listeUtilisateurs[utilisateur.id] !== 'undefined') return {};
+	if (typeof listeUtilisateurs[utilisateur.nom] !== 'undefined') return {};
 	else {
 		// on le cree
-		utilisateur.id = count;
-		listeUtilisateurs[utilisateur.id] = new Utilisateur(utilisateur);
-		count++;
+		listeUtilisateurs[utilisateur.nom] = new Utilisateur(utilisateur);
 		//console.log(listeUtilisateurs);
-		return listeUtilisateurs[utilisateur.id];
+		return listeUtilisateurs[utilisateur.nom];
 	}
 };
 
-var getUtilisateur = function (id) {
-	if (typeof listeUtilisateurs[id] === 'undefined') return {};
-	else return listeUtilisateurs[id];
+var getUtilisateur = function (nom) {
+	if (typeof listeUtilisateurs[nom] === 'undefined') return {};
+	else return listeUtilisateurs[nom];
 };
 
-var supprimerUtilisateur = function (id) {
+var supprimerUtilisateur = function (nom) {
 	// s'il n'existe pas
-	if (typeof listeUtilisateurs[id] === 'undefined') return 0;
+	if (typeof listeUtilisateurs[nom] === 'undefined') return 0;
 	else {
-		delete listeUtilisateurs[id];
+		delete listeUtilisateurs[nom];
 		return 1;
 	}
 };

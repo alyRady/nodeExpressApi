@@ -29,12 +29,12 @@ app.get('/', (req, res) => {
 });
 
 //Get one
-app.get('/:id', (req, res) => {
-	// Récupérer l'id dans paramètres
-	var id = req.params.id;
+app.get('/:nom', (req, res) => {
+	// Récupérer le nom dans paramètres
+	var nom = req.params.nom;
 
 	// recupérer l'utilisateur
-	var ut = utilisateur.getUtilisateur(id);
+	var ut = utilisateur.getUtilisateur(nom);
 
 	// Retourner l'utilisateur au client
 	if (typeof ut === 'undefined' || typeof ut === {}) {
@@ -64,12 +64,12 @@ app.post('/', (req, res) => {
 app.put('/', function (req, res) {}); */
 
 // Delete
-app.delete('/:id', function (req, res) {
-	// Récupérer l'id dans les paramètres
-	var id = req.params.id;
+app.delete('/:nom', function (req, res) {
+	// Récupérer le nom dans les paramètres
+	var nom = req.params.nom;
 
 	// Supprimer l'utilisateur et récupérer le code retour
-	var objres = utilisateur.supprimerUtilisateur(id);
+	var objres = utilisateur.supprimerUtilisateur(nom);
 
 	//Retour au client
 	if (objres == 0) {

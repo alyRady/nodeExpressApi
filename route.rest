@@ -1,0 +1,15 @@
+POST http://localhost:3000/infos
+Content-Type: application/json
+
+{
+    "nom" : "Salut",
+    "dateNaissance" : "04/02/1999"
+}
+
+###
+
+GET http://localhost:3000/infos/
+
+###
+
+DELETE http://localhost:3000/infos/0

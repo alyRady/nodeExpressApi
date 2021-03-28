@@ -20,8 +20,9 @@ app.all('*', function (req, res, next) {
 app.get('/', (req, res) => {
 	// Obtenir la liste des utilisateurs
 	var objres = utilisateur.listerUtilisateurs();
+	console.log(typeof objres[0]);
 
-	if (typeof objres === 'undefined' || typeof objres === []) {
+	if (typeof objres[0] === 'undefined' || typeof objres[0] === []) {
 		res.status(500).json("La liste n'existe pas");
 	} else {
 		res.status(200).json(objres);
@@ -37,7 +38,7 @@ app.get('/:nom', (req, res) => {
 	var ut = utilisateur.getUtilisateur(nom);
 
 	// Retourner l'utilisateur au client
-	if (typeof ut === 'undefined' || typeof ut === {}) {
+	if (typeof ut.nom === 'undefined' || typeof ut.nom === {}) {
 		res.status(404).json('Utilisateur not found');
 	} else {
 		res.status(200).json(ut);
@@ -53,8 +54,8 @@ app.post('/', (req, res) => {
 	var objres = utilisateur.creerUtilisateur(ut);
 
 	// Retourner l'utilisateur au client
-	if (typeof objres === 'undefined' || typeof objres === {}) {
-		res.status(400);
+	if (typeof objres.nom === 'undefined' || typeof objres.nom === '{}') {
+		res.status(400).json('Utilisateur existe déjà');
 	} else {
 		res.status(201).json(objres);
 	}

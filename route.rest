@@ -2,7 +2,7 @@ POST http://localhost:3000/infos
 Content-Type: application/json
 
 {
-    "nom" : "Ali",
+    "nom" : "Aly",
     "password" : "monmdp",
     "email" : "Aly@aka-Ali.com",
     "dateNaissance" : "04/02/1999"
@@ -10,8 +10,8 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/infos
+GET http://localhost:3000/infos/
 
 ###
 
-DELETE http://localhost:3000/infos/
+DELETE http://localhost:3000/infos/Aly

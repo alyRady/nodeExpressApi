@@ -19,8 +19,9 @@ function Utilisateur(utilisateur) {
 
 // créer un nouveau utilisateur
 var creerUtilisateur = function (utilisateur) {
-	if (typeof listeUtilisateurs[utilisateur.nom] !== 'undefined') return {};
-	else {
+	if (typeof listeUtilisateurs[utilisateur.nom] !== 'undefined') {
+		return {};
+	} else {
 		// on le cree
 		listeUtilisateurs[utilisateur.nom] = new Utilisateur(utilisateur);
 		//console.log(listeUtilisateurs);

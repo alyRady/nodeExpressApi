@@ -20,7 +20,6 @@ app.all('*', function (req, res, next) {
 app.get('/', (req, res) => {
 	// Obtenir la liste des utilisateurs
 	var objres = utilisateur.listerUtilisateurs();
-	console.log(typeof objres[0]);
 
 	if (typeof objres[0] === 'undefined' || typeof objres[0] === []) {
 		res.status(500).json("La liste n'existe pas");

@@ -14,4 +14,18 @@ GET http://localhost:3000/infos/
 
 ###
 
-DELETE http://localhost:3000/infos/Aly
+DELETE http://localhost:3000/infos/sMr7CTKkpQJlrI60TaeH
+
+
+
+###
+
+PUT http://localhost:3000/infos/tdJ40ct1sv4J1UW41B
+Content-Type: application/json
+
+{
+    "nom" : "Aliomar",
+    "password" : "mdp",
+    "email" : "Aly@aka-Ali.com",
+    "dateNaissance" : "04/02/1999"
+}

@@ -43,8 +43,20 @@ var supprimerUtilisateur = function (nom) {
 	}
 };
 
-var listerUtilisateurs = function () {
-	return Object.values(listeUtilisateurs);
+var listerUtilisateurs = function (data, usersArray) {
+	// return Object.values(listeUtilisateurs);
+	data.forEach(doc => {
+		const inf = {
+			nom: doc.data().nom,
+			dateNaissance: doc.data().dateNaissance,
+			password: doc.data().password,
+			email: doc.data().email,
+			date: doc.data().date,
+		};
+		const utilisateur = new Utilisateur(inf);
+		usersArray.push(utilisateur);
+	});
+	return usersArray;
 };
 
 exports.creerUtilisateur = creerUtilisateur;
